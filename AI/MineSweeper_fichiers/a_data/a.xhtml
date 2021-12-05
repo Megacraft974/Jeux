@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src chrome:" />
+    <title>Adresse introuvable</title>
+    <link rel="stylesheet" href="chrome://browser/skin/aboutNetError.css" type="text/css" media="all" />
+    <!-- If the location of the favicon is changed here, the FAVICON_ERRORPAGE_URL symbol in
+         toolkit/components/places/src/nsFaviconService.h should be updated. -->
+    <link rel="icon" id="favicon" href="chrome://global/skin/icons/warning.svg" />
+  </head>
+
+  <body dir="ltr" class="illustrated dnsNotFound neterror">
+    <!-- ERROR ITEM CONTAINER (removed during loading to avoid bug 39098) -->
+    
+
+    <!-- PAGE CONTAINER (for styling purposes only) -->
+    <div id="errorPageContainer" class="container">
+      <div id="text-container">
+        <!-- Error Title -->
+        <div class="title">
+          <h1 class="title-text">Hum, nous ne parvenons pas à trouver ce site.</h1>
+        </div>
+
+        <!-- LONG CONTENT (the section most likely to require scrolling) -->
+        <div id="errorLongContent">
+
+          <!-- Short Description -->
+          <div id="errorShortDesc">
+            <p id="errorShortDescText">Impossible de se connecter au serveur à l’adresse googleads.g.doubleclick.net.</p>
+          </div>
+
+          <div id="errorShortDesc2">
+              <p id="errorShortDescText2"></p>
+          </div>
+
+          <p id="badStsCertExplanation" hidden="true">Ce site a recours à
+ HTTP Strict Transport Security (HSTS) pour indiquer à Firefox de 
+n’établir qu’une connexion sécurisée. Ainsi il n’est pas possible 
+d’ajouter d’exception pour ce certificat.</p>
+
+          <div id="wrongSystemTimePanel">
+            <p>Firefox ne s’est pas connecté à <span id="wrongSystemTime_URL"></span> car l’horloge semble indiquer la mauvaise heure et cela empêche d’établir une connexion sécurisée.</p> <p>Votre ordinateur pense qu’il est <span id="wrongSystemTime_systemDate"></span>, alors qu’il est <span id="wrongSystemTime_actualDate"></span>. Pour corriger ce problème, modifiez vos paramètres de date et heure afin qu’ils correspondent à l’heure exacte.</p>
+          </div>
+
+          <div id="wrongSystemTimeWithoutReferencePanel">
+            <p>Firefox ne s’est pas connecté à <span id="wrongSystemTimeWithoutReference_URL"></span> car l’horloge semble indiquer la mauvaise heure et cela empêche d’établir une connexion sécurisée.</p> <p>Votre ordinateur pense qu’il est <span id="wrongSystemTimeWithoutReference_systemDate"></span>. Pour corriger ce problème, modifiez vos paramètres de date et heure afin qu’ils correspondent à l’heure exacte.</p>
+          </div>
+
+          <!-- Long Description (Note: See netError.dtd for used XHTML tags) -->
+          <div id="errorLongDesc"><strong xmlns="http://www.w3.org/1999/xhtml">Si l’adresse est correcte, voici trois autres choses que vous pouvez essayer de faire :</strong>
+<ul xmlns="http://www.w3.org/1999/xhtml">
+  <li>Réessayer ultérieurement.</li>
+  <li>Vérifier votre connexion au réseau.</li>
+  <li>Si vous êtes connecté au travers d’un pare-feu, vérifier que Firefox a la permission d’accéder au Web.</li>
+</ul></div>
+
+          <div id="learnMoreContainer">
+            <p><a href="https://support.mozilla.org/kb/what-does-your-connection-is-not-secure-mean" id="learnMoreLink" target="new" data-telemetry-id="learn_more_link">En savoir plus…</a></p>
+          </div>
+        </div>
+
+        <!-- UI for option to report certificate errors to Mozilla. Removed on
+             init for other error types .-->
+        <div id="certificateErrorReporting">
+          <p class="toggle-container-with-text">
+            <input type="checkbox" id="automaticallyReportInFuture" role="checkbox" data-telemetry-id="auto_report_cb" />
+            <label for="automaticallyReportInFuture" id="automaticallyReportInFuture">Signaler les erreurs similaires pour aider Mozilla à identifier et bloquer les sites malveillants</label>
+          </p>
+        </div>
+
+        <div id="prefChangeContainer" class="button-container">
+          <p>Ce problème semble être provoqué par vos paramètres de sécurité réseau. Voulez-vous restaurer les paramètres par défaut ?</p>
+          <button id="prefResetButton" class="primary">Restaurer les paramètres par défaut</button>
+        </div>
+
+        <div id="certErrorAndCaptivePortalButtonContainer" class="button-container">
+          <button id="returnButton" class="primary" data-telemetry-id="return_button_top">Retour</button>
+          <button id="openPortalLoginPageButton" class="primary">Ouvrir la page de connexion du réseau</button>
+          <button id="advancedButton" data-telemetry-id="advanced_button">Avancé</button>
+        </div>
+      </div>
+
+      <div id="netErrorButtonContainer" class="button-container">
+        <button id="errorTryAgain" class="primary">Réessayer</button>
+      </div>
+
+      <div id="advancedPanelContainer">
+        <div id="badCertAdvancedPanel" class="advanced-panel">
+          <p id="badCertTechnicalInfo"></p>
+          <div id="advancedPanelButtonContainer" class="button-container">
+            <button id="advancedPanelErrorTryAgain" class="primary">Réessayer</button>
+          </div>
+          <div class="exceptionDialogButtonContainer">
+            <button id="exceptionDialogButton" data-telemetry-id="exception_button">Ajouter une exception…</button>
+          </div>
+        </div>
+
+        <div id="certificateErrorDebugInformation">
+          <button id="copyToClipboard" data-telemetry-id="clipboard_button_top">Copier le texte dans le presse-papiers</button>
+          <div id="certificateErrorText"></div>
+          <button id="copyToClipboard" data-telemetry-id="clipboard_button_bot">Copier le texte dans le presse-papiers</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="application/javascript" src="chrome://browser/content/aboutNetError.js"></script>
+</html>
