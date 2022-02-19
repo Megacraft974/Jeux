@@ -45,7 +45,7 @@ for x in range(xTiles):
 clickAt(game[0][0][0],game[0][0][1])
 clickAt(game[0][0][0],game[0][0][1])
 
-def getNearTiles(actual,typeTiles):
+def getNearTiles(actual,typesTiles):
     near = []
     for x in range(2):
         near.append([])
@@ -56,6 +56,7 @@ def getNearTiles(actual,typeTiles):
 def testRules(near,actual,game):
     unflagged = 0
     flagged = 0
+    print(near)
     for x in range(2):
         for y in range(2):
             if near[x][y] == "u":

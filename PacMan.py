@@ -60,7 +60,7 @@ def showTurns(maze, turns, color):
         maze[i[0]][i[1]] = color
 
 turns = defineTurns(labyrinthe)
-#showTurns(labyrinthe, turns, "pink")
+showTurns(labyrinthe, turns, "pink")
 
 pX = int(len(labyrinthe)/2)
 pY = int(len(labyrinthe)/2)+2
